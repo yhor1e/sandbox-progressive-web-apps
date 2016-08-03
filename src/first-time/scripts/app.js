@@ -2,6 +2,9 @@
 (function() {
   'use strict';
 
+  // Insert injected weather forecast here
+
+
   var app = {
     isLoading: true,
     visibleCards: {},
@@ -38,6 +41,7 @@
     var label = selected.textContent;
     app.getForecast(key, label);
     app.selectedCities.push({key: key, label: label});
+    // Remember to save user preferences here
     app.toggleAddDialog(false);
   });
 
@@ -156,26 +160,32 @@
       time: 1453489481,
       summary: 'Clear',
       icon: 'partly-cloudy-day',
-      temperature: 30,
-      apparentTemperature: 21,
-      precipProbability: 0.80,
-      humidity: 0.17,
+      temperature: 60,
+      apparentTemperature: 65,
+      precipProbability: 0.25,
+      humidity: 0.75,
       windBearing: 125,
-      windSpeed: 1.52
+      windSpeed: 1.50
     },
     daily: {
       data: [
-        {icon: 'clear-day', temperatureMax: 36, temperatureMin: 31},
-        {icon: 'rain', temperatureMax: 34, temperatureMin: 28},
-        {icon: 'snow', temperatureMax: 31, temperatureMin: 17},
-        {icon: 'sleet', temperatureMax: 38, temperatureMin: 31},
-        {icon: 'fog', temperatureMax: 40, temperatureMin: 36},
-        {icon: 'wind', temperatureMax: 35, temperatureMin: 29},
-        {icon: 'partly-cloudy-day', temperatureMax: 42, temperatureMin: 40}
+        {icon: 'clear-day', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'rain', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'snow', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'sleet', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'fog', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'wind', temperatureMax: 60, temperatureMin: 50},
+        {icon: 'partly-cloudy-day', temperatureMax: 60, temperatureMin: 50}
       ]
     }
   };
-  // Uncomment the line below to test with the provided fake data
+  // Uncomment the line below to test the app with fake data
   // app.updateForecastCard(fakeForecast);
+  app.updateForecastCard(fakeForecast);
+
+  // Add code to save the users list of subscribed cities here
+
+  // Add code to check if the user has any subscribed cities, and render
+  // those or the default data here.
 
 })();
