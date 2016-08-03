@@ -181,7 +181,7 @@
   };
 
   // Uncomment the line below to test the app with fake data
-  // app.updateForecastCard(fakeForecast);
+  app.updateForecastCard(initialWeatherForecast);
 
   // Add code to save the users list of subscribed cities here
 
