@@ -1,10 +1,4 @@
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .registory('./service-worker.js')
-    .then(function () { console.log('Service Worker Registered');})
-}
-
-var cacheName = 'weatherPWA-step-5-1';
+var cacheName = 'weathhenko';
 var filesToCache = [
   '/',
   '/index.html',
@@ -14,8 +8,8 @@ var filesToCache = [
   '/images/cloudy-scattered-showers.png',
   '/images/cloudy.png',
   '/images/fog.png',
-  '/images/ic\_add\_white\_24px.svg',
-  '/images/ic\_refresh\_white\_24px.svg',
+  '/images/ic_add_white_24px.svg',
+  '/images/ic_refresh_white_24px.svg',
   '/images/partly-cloudy.png',
   '/images/rain.png',
   '/images/scattered-showers.png',
