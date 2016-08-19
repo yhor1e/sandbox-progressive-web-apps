@@ -1,4 +1,4 @@
-var CACHE_NAME = 'v0.0.5';
+var CACHE_NAME = 'v0.0.9';
 
 var urlsToCache = [
   '/',
@@ -19,17 +19,16 @@ self.addEventListener('install', function(event) {
 
 // Fetch step
 self.addEventListener('fetch', function(event) {
-  console.log('[Service Worker] fetch called',  event.request.url, 'ddd');
-
+  console.log('[Service Worker] fetch called',  event.request.url);
   event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        return response || fetch(e.request);
+    fetch(event.request)
+      .catch(function() {
+        return caches.match(event.request);
       })
   );
 });
 
-// activate step
+// Fetch step
 self.addEventListener('activate', function(event) {
   console.log('[Service Worker] activate called');
 
