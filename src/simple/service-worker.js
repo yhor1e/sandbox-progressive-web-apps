@@ -1,6 +1,6 @@
-var CACHE_NAME = 'v0.0.9';
+const CACHE_NAME = 'v0.1.1';
 
-var urlsToCache = [
+let urlsToCache = [
   '/',
   '/data.json'
 ];
@@ -19,12 +19,19 @@ self.addEventListener('install', function(event) {
 
 // Fetch step
 self.addEventListener('fetch', function(event) {
-  console.log('[Service Worker] fetch called',  event.request.url);
   event.respondWith(
-    fetch(event.request)
-      .catch(function() {
-        return caches.match(event.request);
-      })
+    caches.open(CACHE_NAME).then(function(cache) {
+      return fetch(event.request)
+        .then(function(response) {
+          console.log('[Service Worker] fetch from network', event.request.url);
+          cache.put(event.request, response.clone());
+          return response;
+        })
+        .catch(function() {
+          console.log('[Service Worker] fetch from cache', event.request.url);
+          return caches.match(event.request);
+        })
+    })
   );
 });
 
